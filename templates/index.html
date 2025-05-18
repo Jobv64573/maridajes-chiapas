@@ -1,0 +1,210 @@
+<!-- templates/inicio.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maridajes Chiapanecos y Vinos Mexicanos</title>
+    <style>
+        :root {
+            --color-primary: #8B4513; /* Marrón tierra */
+            --color-secondary: #228B22; /* Verde selva */
+            --color-accent: #DC143C; /* Rojo vibrante */
+            --color-wine: #4B0082; /* Morado vino */
+            --color-text: #333;
+            --color-background: #F5F5DC; /* Beige claro */
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--color-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: var(--color-secondary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .nav {
+            background-color: var(--color-accent);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        select[multiple] {
+            height: 150px;
+            width: 300px;
+        }
+
+        select, button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: var(--color-wine);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6A0DAD;
+        }
+
+        .recommendation-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .recommendation {
+            flex: 1 1 100%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .wine-list {
+            margin-top: 10px;
+        }
+
+        .wine-item {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        .wine-item:last-child {
+            border-bottom: none;
+        }
+
+        .wine-title {
+            color: var(--color-wine);
+            margin: 5px 0;
+        }
+
+        .price {
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        .footer {
+            background-color: var(--color-secondary);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            .form-container {
+                padding: 10px;
+            }
+            select[multiple] {
+                width: 100%;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Georgia&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <h1>Maridajes de Chiapas y Vinos Mexicanos</h1>
+        <img src="https://via.placeholder.com/800x300.png?text=Gastronomía+Chiapaneca+y+Vinos+Mexicanos" alt="Gastronomía Chiapaneca">
+    </div>
+
+    <div class="nav">
+        <a href="/">Inicio</a>
+        <a href="/cata">Guía de Cata</a>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <form method="POST">
+                <label for="platillos">Selecciona uno o más platillos:</label><br>
+                <select name="platillos" id="platillos" multiple>
+                    {% for platillo in platillos %}
+                        <option value="{{ platillo }}">{{ platillo }}</option>
+                    {% endfor %}
+                </select><br>
+                
+                <label for="tipo_vino">Tipo de vino preferido:</label><br>
+                <select name="tipo_vino" id="tipo_vino">
+                    {% for tipo in tipos_vino %}
+                        <option value="{{ tipo }}">{{ tipo|capitalize }}</option>
+                    {% endfor %}
+                </select><br>
+                
+                <button type="submit">Obtener Recomendaciones</button>
+            </form>
+        </div>
+
+        {% if recomendaciones %}
+        <div class="recommendation-container">
+            {% for platillo, info in recomendaciones.items() %}
+            <div class="recommendation">
+                <h2>{{ platillo }}</h2>
+                <p><strong>Descripción:</strong> {{ info.descripcion }}</p>
+                <div class="wine-list">
+                    <h3>Opciones de vinos:</h3>
+                    {% for vino in info.vinos %}
+                    <div class="wine-item">
+                        <h4 class="wine-title">{{ vino.nombre }}</h4>
+                        <p><strong>Notas:</strong> {{ vino.notas }}</p>
+                        <p><strong>Región:</strong> {{ vino.region }}</p>
+                        <p><strong>Precio aproximado:</strong> <span class="price">${{ vino.precio }} MXN</span></p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        <p>© 2023 Maridajes Chiapanecos y Vinos Mexicanos</p>
+    </div>
+</body>
+</html>

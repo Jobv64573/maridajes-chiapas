@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Cata de Vinos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .nav-link {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .nav-link a {
+            color: #8e44ad;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav-link a:hover {
+            text-decoration: underline;
+        }
+        .content-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #8e44ad;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        p {
+            line-height: 1.6;
+            color: #333;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .tip {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-left: 4px solid #8e44ad;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guía de Cata de Vinos</h1>
+    
+    <div class="nav-link">
+        <a href="{{ url_for('index') }}">Volver a Maridajes</a>
+    </div>
+
+    <div class="content-container">
+         Introducción a la Cata de Vinos
+        <p>La cata de vinos es mucho más que simplemente beber una copa de vino: es un ejercicio sensorial que permite apreciar y analizar las características únicas de cada vino. A través de la vista, el olfato y el gusto, podemos descubrir los aromas, sabores, texturas y estructura que hacen de cada vino una experiencia especial. Esta práctica no está reservada solo para sommeliers o expertos; cualquier persona con curiosidad y ganas de aprender puede disfrutar y beneficiarse de la cata. Además de ser una actividad placentera, la cata nos ayuda a entender mejor el origen del vino, las variedades de uva utilizadas y los métodos de elaboración que influyen en su perfil final.</p>
+        
+         Preparación para la Cata
+        <p>Antes de comenzar a catar un vino, es esencial preparar el entorno y los utensilios para garantizar una experiencia óptima. Aquí tienes algunos aspectos clave a considerar:</p>
+        <ul>
+            <li><strong>Ambiente adecuado:</strong> Busca un lugar tranquilo, bien iluminado y sin olores fuertes como perfumes, comida o humo. Estos elementos pueden interferir con tu percepción de los aromas del vino.</li>
+            <li><strong>Copas adecuadas:</strong> Utiliza copas de cristal transparente con forma de tulipa (base ancha y boca más estrecha) para concentrar los aromas. Asegúrate de que estén limpias y sin rastros de detergente.</li>
+            <li><strong>Temperatura del vino:</strong> Sirve el vino a la temperatura ideal según su tipo: tintos entre 16-18°C, blancos y rosados entre 8-12°C, y espumosos entre 6-8°C. Una temperatura incorrecta puede alterar los sabores y aromas.</li>
+            <li><strong>Orden de cata:</strong> Si vas a probar varios vinos, comienza con los más ligeros (blancos o rosados) y avanza hacia los más intensos (tintos). Esto evita que los sabores fuertes opaquen los más sutiles.</li>
+        </ul>
+        <div class="tip">
+            <strong>Consejo:</strong> Evita usar perfumes, colonias o cremas con fragancias intensas antes de la cata, ya que podrían mezclarse con los aromas del vino y distorsionar tu experiencia.
+        </div>
+
+         Proceso de Cata de Vinos
+        <p>La cata de vinos se divide en tres etapas principales: vista, olfato y gusto. Cada etapa revela información valiosa sobre las cualidades del vino y su elaboración.</p>
+
+         1. Vista
+        <p>La primera impresión del vino viene de su apariencia. Observar el color, la claridad y la viscosidad puede darte pistas sobre su edad, variedad de uva y estilo:</p>
+        <ul>
+            <li><strong>Color:</strong> Inclina la copa contra un fondo blanco (como una hoja de papel) para evaluar el tono y la intensidad. Los tintos jóvenes suelen ser rojo rubí, mientras que los envejecidos tienden a granate o teja. Los blancos van de amarillo pálido (jóvenes) a dorado (maduros), y los rosados varían entre rosa claro y salmón.</li>
+            <li><strong>Claridad:</strong> Un vino claro y brillante es señal de buena calidad, mientras que la turbidez puede indicar sedimentos o defectos.</li>
+            <li><strong>Viscosidad:</strong> Agita la copa y observa las "lágrimas" o "piernas" que se forman en las paredes. Si son gruesas y descienden lentamente, el vino podría tener un alto contenido de alcohol o azúcar.</li>
+        </ul>
+
+         2. Olfato
+        <p>El olfato es una de las partes más importantes de la cata, ya que muchos de los sabores que percibimos provienen de los aromas. Para evaluar el vino con el olfato:</p>
+        <ul>
+            <li>Acerca la copa a tu nariz y haz una primera inhalación suave para captar los aromas iniciales.</li>
+            <li>Agita la copa con movimientos circulares suaves para oxigenar el vino y liberar más aromas, luego vuelve a oler.</li>
+            <li>Identifica los tipos de aromas presentes, que pueden clasificarse en categorías como:
+                <ul>
+                    <li><strong>Frutales:</strong> Cítricos (limón, naranja), frutos rojos (fresa, cereza), tropicales (piña, mango).</li>
+                    <li><strong>Florales:</strong> Rosa, jazmín, lavanda.</li>
+                    <li><strong>Especiados:</strong> Pimienta, canela, vainilla.</li>
+                    <li><strong>Herbáceos:</strong> Menta, eucalipto, pasto recién cortado.</li>
+                    <li><strong>Minerales:</strong> Pizarra, tierra húmeda, sal marina.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Estos aromas pueden revelar la variedad de uva, el terroir (clima y suelo donde se cultivó) y el uso de barricas en la elaboración.</p>
+
+         3. Gusto
+        <p>El gusto completa la experiencia, permitiéndote analizar los sabores y la estructura del vino. Para saborearlo correctamente:</p>
+        <ul>
+            <li>Toma un sorbo pequeño y deja que el vino recorra toda tu boca, prestando atención a las sensaciones en la lengua, las encías y el paladar.</li>
+            <li>Identifica los sabores básicos: dulce (típico en algunos blancos), ácido (refrescante), amargo (en taninos de tintos) y, en raras ocasiones, salado.</li>
+            <li>Evalúa la <strong>acidez</strong>: una sensación fresca que hace salivar, más notable en vinos blancos y tintos jóvenes.</li>
+            <li>En tintos, analiza los <strong>taninos</strong>: esa sensación astringente que seca la boca, proveniente de las pieles de la uva. Pueden ser suaves y aterciopelados o firmes y robustos.</li>
+            <li>Observa el <strong>cuerpo</strong>: la densidad o peso en boca, que puede ser ligero (como agua), medio o pleno (como crema).</li>
+            <li>Finalmente, mide el <strong>final</strong>: cuánto tiempo persisten los sabores tras tragar. Un final largo y agradable suele ser signo de un buen vino.</li>
+        </ul>
+        <div class="tip">
+            <strong>Consejo:</strong> Entrena tu paladar probando distintos vinos y anotando tus impresiones. Con el tiempo, reconocerás mejor los sabores y aromas.
+        </div>
+
+         Tipos de Vinos y su Influencia en la Cata
+        <p>Cada tipo de vino tiene características únicas que afectan cómo lo percibimos durante la cata. Aquí te explico los principales:</p>
+        
+         Vinos Tintos
+        <p>Elaborados con uvas tintas fermentadas con sus pieles, lo que les aporta color, taninos y complejidad. En la cata, destacan por su cuerpo medio a pleno, taninos perceptibles y aromas que van desde frutos rojos (fresa, mora) hasta notas de especias o madera si han sido envejecidos en barrica. Ejemplos: Cabernet Sauvignon, Merlot, Tempranillo.</p>
+        
+         Vinos Blancos
+        <p>Hechos con uvas blancas o tintas sin contacto prolongado con las pieles, son frescos y ligeros. En la cata, ofrecen alta acidez, aromas frutales (manzana, cítricos) o florales, y un cuerpo ligero a medio. Ejemplos: Chardonnay, Sauvignon Blanc, Albariño.</p>
+        
+         Vinos Rosados
+        <p>Producidos con un breve contacto con las pieles de uvas tintas, son un punto intermedio entre tintos y blancos. En la cata, son frescos, con aromas de frutos rojos y una acidez equilibrada. Ejemplos: Rosé de Provence, Rosado de Zinfandel.</p>
+        
+         Vinos Espumosos
+        <p>Conocidos por sus burbujas, como el Champagne o el Prosecco, añaden una sensación efervescente en boca. En la cata, presentan aromas de pan tostado, frutas frescas o flores, y una acidez vibrante. Las burbujas potencian la experiencia sensorial.</p>
+        
+         Vinos Fortificados
+        <p>Como el Oporto o el Jerez, se les añade alcohol durante la elaboración, lo que eleva su graduación y dulzura. En la cata, tienen sabores intensos (frutos secos, caramelo) y un cuerpo más pesado, ideales para postres o quesos fuertes.</p>
+
+         Consejos Prácticos para la Cata
+        <p>Mejora tu experiencia de cata con estas recomendaciones:</p>
+        <ul>
+            <li><strong>Sostén la copa por el tallo:</strong> Evita calentarla con tu mano y mantenerla limpia de huellas.</li>
+            <li><strong>Llena solo un tercio de la copa:</strong> Esto te permite agitar el vino sin derramarlo.</li>
+            <li><strong>Agita con suavidad:</strong> Haz movimientos circulares para oxigenar el vino y liberar aromas.</li>
+            <li><strong>Desarrolla tu memoria olfativa:</strong> Asocia los aromas del vino con olores cotidianos (frutas, especias) para identificarlos mejor.</li>
+            <li><strong>Toma notas:</strong> Usa un cuaderno para registrar tus impresiones sobre cada vino; esto te ayudará a comparar y aprender.</li>
+            <li><strong>Prueba con maridajes:</strong> Combina vinos con alimentos para explorar cómo interactúan los sabores.</li>
+        </ul>
+
+         Conclusión
+        <p>La cata de vinos es un arte que combina técnica y placer. No se trata de encontrar respuestas "correctas", sino de disfrutar y explorar lo que cada vino tiene para ofrecer. Con práctica y atención, desarrollarás tus sentidos y apreciarás mejor esta bebida milenaria. ¡Toma una copa, sigue esta guía y comienza tu viaje en el mundo del vino!</p>
+    </div>
+</body>
+</html>
